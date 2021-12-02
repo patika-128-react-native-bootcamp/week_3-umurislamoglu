@@ -17,14 +17,14 @@ export default function CreateMenu() {
   const route = useRoute();
 
   function handleNavigateDetail() {
-    const fd = {
+    const menuItem = {
       name: name,
       description: description,
       ingredients: ingredients,
       price: price,
     };
 
-    navigation.navigate('MenuDetailPage', {fd});
+    navigation.navigate('MenuDetailPage', {menuItem});
   }
 
   return (

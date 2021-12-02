@@ -1,13 +1,12 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import Menu from '../../pages/Menu/Menu';
 import MenuDetail from '../../pages/Menu/MenuDetail';
 import CreateMenu from '../../pages/Menu/CreateMenu';
 
 const Stack = createNativeStackNavigator();
 
-export default function MenuStck() {
+export default function MenuStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
