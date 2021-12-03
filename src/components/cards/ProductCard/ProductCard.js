@@ -12,6 +12,7 @@ import styles from './ProductCard.styles';
 export default function ProductCard({item, onSelect}) {
 
   const {imageURL, isPopular, name} = item
+  
   return (
     <TouchableWithoutFeedback onPress={onSelect}>
       <ImageBackground

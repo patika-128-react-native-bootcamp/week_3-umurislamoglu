@@ -27,19 +27,20 @@ export default function CreateMenu() {
     navigation.navigate('MenuDetailPage', {menuItem});
   }
 
+
   return (
     <SafeAreaView>
       <Text style={styles.menu_name}>{route.params.menu.name}</Text>
-      <Input label="Name" onChangeText={value => setName(value)} />
+      <Input label="Name" onChangeText={setName} />
       <Input
         label="Description"
-        onChangeText={value => setDescription(value)}
+        onChangeText={setDescription}
       />
       <Input
         label="Ingredients"
-        onChangeText={value => setIngredients(value)}
+        onChangeText={setIngredients}
       />
-      <Input label="Price" onChangeText={value => setPrice(value)} />
+      <Input label="Price" onChangeText={setPrice} />
       <Button title="Apply Food" onPress={handleNavigateDetail} />
     </SafeAreaView>
   );

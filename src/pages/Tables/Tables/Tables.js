@@ -25,7 +25,7 @@ export default function Table() {
     }
 
     const {updatedTable} = route.params;
-    const updatedTableIndex = tables.findIndex(t => t.id === updatedTable.id);
+    const updatedTableIndex = tables.findIndex(table => table.id === updatedTable.id);
     const newTables = [...tables];
     newTables[updatedTableIndex] = updatedTable;
     setTables(newTables);
