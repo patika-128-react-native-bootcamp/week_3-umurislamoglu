@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/core';
-import {SafeAreaView, Text} from 'react-native';
+import { SafeAreaView, Text, ScrollView } from 'react-native';
 
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
@@ -30,6 +30,7 @@ export default function CreateMenu() {
 
   return (
     <SafeAreaView>
+      <ScrollView>
       <Text style={styles.menu_name}>{route.params.menu.name}</Text>
       <Input label="Name" onChangeText={setName} />
       <Input
@@ -42,6 +43,7 @@ export default function CreateMenu() {
       />
       <Input label="Price" onChangeText={setPrice} />
       <Button title="Apply Food" onPress={handleNavigateDetail} />
+      </ScrollView>
     </SafeAreaView>
   );
 }
