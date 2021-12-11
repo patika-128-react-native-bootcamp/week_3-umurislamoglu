@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/core';
-import {SafeAreaView, Text} from 'react-native';
+import { SafeAreaView, Text, ScrollView } from 'react-native';
 
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
@@ -17,30 +17,33 @@ export default function CreateMenu() {
   const route = useRoute();
 
   function handleNavigateDetail() {
-    const fd = {
+    const menuItem = {
       name: name,
       description: description,
       ingredients: ingredients,
       price: price,
     };
 
-    navigation.navigate('MenuDetailPage', {fd});
+    navigation.navigate('MenuDetailPage', {menuItem});
   }
+
 
   return (
     <SafeAreaView>
+      <ScrollView>
       <Text style={styles.menu_name}>{route.params.menu.name}</Text>
-      <Input label="Name" onChangeText={value => setName(value)} />
+      <Input label="Name" onChangeText={setName} />
       <Input
         label="Description"
-        onChangeText={value => setDescription(value)}
+        onChangeText={setDescription}
       />
       <Input
         label="Ingredients"
-        onChangeText={value => setIngredients(value)}
+        onChangeText={setIngredients}
       />
-      <Input label="Price" onChangeText={value => setPrice(value)} />
+      <Input label="Price" onChangeText={setPrice} />
       <Button title="Apply Food" onPress={handleNavigateDetail} />
+      </ScrollView>
     </SafeAreaView>
   );
 }

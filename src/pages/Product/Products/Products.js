@@ -7,17 +7,25 @@ import mockData from '../../../MOCK_DATA.json';
 export default function Products() {
   const navigation = useNavigation();
 
+  const {products} = mockData;
+
   function navigate(selectedProduct) {
     navigation.navigate('PrdctDtlPage', {product: selectedProduct});
   }
 
+  const renderProducts = ({item, index}) => (
+    <ProductCard
+    item={item}
+    key={index}
+    onSelect={() => navigate(item)}
+  />
+  )
+
   return (
     <SafeAreaView>
       <FlatList
-        data={mockData.products}
-        renderItem={({item}) => (
-          <ProductCard item={item} onSelect={() => navigate(item)} />
-        )}
+        data={products}
+        renderItem={renderProducts}
       />
     </SafeAreaView>
   );

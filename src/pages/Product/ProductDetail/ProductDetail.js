@@ -9,32 +9,32 @@ export default function ProductDetail() {
 
   const {product} = route.params;
 
+  const {imageURL, name, isPopular, price, ingredients, description} = product;
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Image
           style={styles.image}
           source={{
-            uri: product.imageURL,
+            uri: imageURL,
           }}
         />
         <View style={styles.name_container}>
-          <Text style={styles.name_label}>{product.name}</Text>
-          {product.isPopular && <Icon name="star" color="orange" size={25} />}
+          <Text style={styles.name_label}>{name}</Text>
+          {isPopular && <Icon name="star" color="orange" size={25} />}
         </View>
         <ScrollView horizontal bounces={false}>
-          {product.ingredients.map((ing, ind) => {
-            return (
-              <View style={styles.badge_container}>
-                <Text style={styles.badge_label}>{ing}</Text>
-              </View>
-            );
-          })}
+          {ingredients.map((ingredient, index) => (
+            <View style={styles.badge_container} key={index}>
+              <Text style={styles.badge_label}>{ingredient}</Text>
+            </View>
+          ))}
         </ScrollView>
         <View style={styles.description_container}>
-          <Text style={styles.description}>{product.description}</Text>
+          <Text style={styles.description}>{description}</Text>
         </View>
-        <Text style={styles.price}>{product.price} TL</Text>
+        <Text style={styles.price}>{price} TL</Text>
       </ScrollView>
     </SafeAreaView>
   );
